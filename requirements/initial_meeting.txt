@@ -1,0 +1,42 @@
+Angular
+Entity Framework SQL Server
+- Graphs
+
+
+Customer requirements;
+
+- Do we need to track entering widgets? Or is there an existing API / System configured we need to call ? No, we're doing everything
+
+- We need managers and salesperson roles
+- Sales people can, create orders, and add customers
+- Managers can create customers, orders and add inventory (creating products, adding stock)
+
+ - Screws is what we're tracking
+ - Quantity 50 screws per "product item" called a "Pack"
+ - Define a product as;
+
+	- Type (Wood, Machine, Deck)
+	- Head Type ( Phillips / Slotted ) 
+	- Size (3, 5 and 7mm)
+	- Purchase price (per pack)
+
+ - Adding a product has a price paid, and available sale price 
+range. 
+
+- Purchase 50 packs at once of any product, 
+
+- Purchase Price remains the same 
+
+- We need to track clients. Sales person will enter the client. 
+
+- We need to track history of orders, number of products, quantity, sale price
+
+- As a manager, I need to be able to see sales performance over quarters. How many orders, profit ( sale price - purchase price )
+- As a manager, I need to see who created a customer. No need for quantity. 
+
+
+Back Office - People who are entering screws into the system, adding product combinations, adding prices, setting the sales prices.
+
+Salesperson - person who goes out in the field and sells the screws
+
+Customer - Consumer of the screws 
