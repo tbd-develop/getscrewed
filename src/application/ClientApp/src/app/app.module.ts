@@ -17,6 +17,8 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
 
+import { AuthenticationService } from './services/authentication.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,11 +37,12 @@ import { LoginComponent } from './login/login.component';
       { path: 'login', component: LoginComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: '**', component: HomeComponent }
     ]),
     BrowserAnimationsModule,
     MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
