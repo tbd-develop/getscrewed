@@ -1,6 +1,7 @@
 using System;
 using application.Infrastructure;
 using application.Infrastructure.Models;
+using application.Initializers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,7 @@ namespace application
                     Configuration.GetConnectionString("screwed")));
 
             services.AddDefaultIdentity<EmployeeUser>()
+                .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
             services.Configure<IdentityOptions>(options =>
@@ -77,7 +79,9 @@ namespace application
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
+            UserManager<EmployeeUser> userManager,
+            RoleManager<IdentityRole<Guid>> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -89,6 +93,8 @@ namespace application
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            SetupIdentityInitializer.Initialize(userManager, roleManager);
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
