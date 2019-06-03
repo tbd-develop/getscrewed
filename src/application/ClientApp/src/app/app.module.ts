@@ -14,15 +14,18 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { CreateEmployeeComponent } from './create-employee/create-employee.component'
 
 import { AuthenticationService } from './services/authentication.service';
+import { EmployeeService } from './services/employee.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CreateEmployeeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,12 +34,13 @@ import { AuthenticationService } from './services/authentication.service';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
+      { path: 'create-employee', component: CreateEmployeeComponent },
       { path: '**', component: HomeComponent }
     ]),
     BrowserAnimationsModule,
     MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
