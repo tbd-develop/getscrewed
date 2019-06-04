@@ -1,0 +1,33 @@
+<form [formGroup]="createForm">
+  <mat-card>
+    <mat-card-title>
+      Create Employee
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput type="text" name="FirstName" placeholder="FirstName" formControlName="FirstName" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput type="text" name="LastName" placeholder="LastName" formControlName="LastName" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput type="text" name="PersonalAccountNumber" placeholder="PersonalAccountNumber" formControlName="PersonalAccountNumber" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput type="Email" name="Email" placeholder="Email" formControlName="Email" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput type="text" name="Password" placeholder="Password" formControlName="Password" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="createEmployee()">Create</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+

@@ -8,6 +8,7 @@ namespace application.Infrastructure
 {
     public class ApplicationContext : IdentityDbContext<EmployeeUser, IdentityRole<Guid>, Guid>
     {
+        public DbSet<EmployeeUser> EnployeeUser { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         { }
     }

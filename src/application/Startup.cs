@@ -94,7 +94,7 @@ namespace application
                 app.UseHsts();
             }
 
-            SetupIdentityInitializer.Initialize(userManager, roleManager);
+            //SetupIdentityInitializer.Initialize(userManager, roleManager);
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
